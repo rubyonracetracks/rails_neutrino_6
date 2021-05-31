@@ -132,8 +132,8 @@ then
   echo "END: rails new $APP_NAME"
   echo '------------------------'
   echo "$APP_NAME" > $DIR_APP/config/time_stamp.txt
-  # prepare_mod_app
-  # cd $DIR_APP && bash mod_app.sh '01-01' $TOGGLE_OUTLINE
+  prepare_mod_app
+  cd $DIR_APP && bash mod_app.sh '01-01' $TOGGLE_OUTLINE
 else
   download_base_app
   prepare_mod_app
