@@ -146,3 +146,12 @@ if [ "$DOCKERIZE" = 'Y' ]
 then
   cd $DIR_APP && bash mod_app.sh '01-02' $TOGGLE_OUTLINE
 fi
+
+#########
+# CLEANUP
+#########
+# Remove the mod* files from the new app
+
+echo 'Cleaning up the app'
+rm -rf $DIR_APP/mod
+rm $DIR_APP/mod*

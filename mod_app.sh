@@ -14,7 +14,7 @@ DATE1=$(date +%s)
 cp mod/mod-$CHAPTER/* $PWD
 SCRIPT="mod-$CHAPTER.sh"
 bash $SCRIPT $TOGGLE_OUTLINE
-rm mod-$CHAPTER-*
+rm mod-$CHAPTER*
 
 DATE2=$(date +%s)
 
