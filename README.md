@@ -10,6 +10,11 @@ Similarly, Rails Neutrino allows you to create a new app very rapidly because th
 
 ## Usage
 
+## Name of New Rails App
+* The name of the Rails app is kept below 30 characters long to conform to Heroku's restrictions.
+* The name of the Rails app has the time of creation encoded to ensure uniqueness.
+* The time stamp in the Rails app name includes milliseconds to ensure uniqueness even if a large number of people (perhaps in a workshop) is using Rails Neutrino create apps simultaneously.
+
 ## Legacy Apps
 * Each line in the source code that begins with "# WICHTIG/LEGACY" points to features to add to legacy projects.  (The word "wichtig" is the German word for "important".)  The associated commands in the scripts are the instructions on how to implement these features.
 * Download this repository and search the source code for "# WICHTIG/LEGACY".  You now have a handy to-do list of things to do in a legacy project.  You may need to make adjustments, but you won't forget the basic steps.

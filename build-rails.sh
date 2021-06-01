@@ -138,3 +138,11 @@ else
   download_base_app
   prepare_mod_app
 fi
+
+###############
+# DOCKERIZATION
+###############
+if [ "$DOCKERIZE" = 'Y' ]
+then
+  cd $DIR_APP && bash mod_app.sh '01-02' $TOGGLE_OUTLINE
+fi
