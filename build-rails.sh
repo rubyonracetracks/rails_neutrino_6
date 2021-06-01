@@ -145,6 +145,7 @@ fi
 if [ "$DOCKERIZE" = 'Y' ]
 then
   cd $DIR_APP && bash mod_app.sh '01-02' $TOGGLE_OUTLINE
+  cd $DIR_APP && bash mod_app.sh '01-03' $TOGGLE_OUTLINE
 fi
 
 #########
