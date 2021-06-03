@@ -39,9 +39,9 @@ echo '##############################'
 echo 'FINISHED: docker-compose build'
 echo '##############################'
 
-#BUNDLER docker/gem_install_bundler
+#GEM_INSTALL_BUNDLER docker/gem_install_bundler
 
-#BUNDLER docker/bundle_install
+#BUNDLE_INSTALL docker/bundle_install
 
 # echo '------------------------------------------------------------'
 # echo 'BEGIN: bundle exec rake db:create db:migrate db:test:prepare'
