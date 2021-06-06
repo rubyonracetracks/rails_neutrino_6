@@ -20,4 +20,4 @@ echo '---------------------------------------'
 echo "gem install bundler -v $BUNDLER_VERSION"
 
 git add .
-git commit -m "Added the docker/gem_install_bundler"
+git commit -m 'Added docker/gem_install_bundler'

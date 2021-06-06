@@ -20,4 +20,4 @@ echo '###########################'
 ruby mod-01-01.rb
 
 git add .
-git commit -m "Updated .gitignore"
+git commit -m 'Updated .gitignore'

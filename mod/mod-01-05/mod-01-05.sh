@@ -32,4 +32,4 @@ echo 'END: bundle install'
 echo '-------------------'
 
 git add .
-git commit -m "Added docker/bundle_install"
+git commit -m 'Added docker/bundle_install'

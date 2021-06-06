@@ -20,4 +20,4 @@ echo '---------------------------'
 bundle exec rake db:migrate
 
 git add .
-git commit -m "Added docker/migrate"
+git commit -m 'Added docker/migrate'

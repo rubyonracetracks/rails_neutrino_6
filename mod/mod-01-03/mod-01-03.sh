@@ -27,4 +27,4 @@ NODE_V2=`echo "$NODE_V1" | tr -d 'v'`
 docker/replace_sif 'NODE_VERSION_HERE' "$NODE_V2" Dockerfile-template
 
 git add .
-git commit -m "Added the docker/build and other scripts needed to build the Docker container and execute commands in it"
+git commit -m 'Added the docker/build and other scripts needed to build the Docker container and execute commands in it'

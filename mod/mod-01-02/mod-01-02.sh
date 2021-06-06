@@ -15,4 +15,4 @@ mv mod-01-02-docker_nuke docker/nuke
 chmod +x docker/nuke
 
 git add .
-git commit -m "Added docker/nuke and docker/nukec"
+git commit -m 'Added docker/nuke and docker/nukec'
