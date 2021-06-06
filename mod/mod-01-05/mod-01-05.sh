@@ -3,6 +3,7 @@ set -e
 
 # AGENDA:
 # * Add the docker/bundle_install script for installing Bundler and executing "yarn install" and "bundle install" (WICHTIG/LEGACY)
+# * Enable docker/bundle_install in docker/build-log (WICHTIG/LEGACY)
 # * Removing docker/gem_install_bundler from docker/build-log (redundant)
 
 echo '#################################################'

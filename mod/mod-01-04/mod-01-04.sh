@@ -3,7 +3,7 @@ set -e
 
 # AGENDA:
 # * Add the docker/gem_install_bundler script for installing the correct version of Bundler (WICHTIG/LEGACY)
-# * Enable docker/gem_install_bundler in docker/build-log
+# * Enable docker/gem_install_bundler in docker/build-log (WICHTIG/LEGACY)
 
 echo '#############################################'
 echo 'Unit 1 Chapter 4: Bundler Installation Script'

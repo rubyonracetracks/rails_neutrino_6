@@ -43,6 +43,8 @@ echo '##############################'
 
 #BUNDLE_INSTALL docker/bundle_install
 
+#DATABASE_MIGRATE docker/migrate
+
 # echo '------------------------------------------------------------'
 # echo 'BEGIN: bundle exec rake db:create db:migrate db:test:prepare'
 # echo '------------------------------------------------------------'
