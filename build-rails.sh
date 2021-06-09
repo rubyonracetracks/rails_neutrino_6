@@ -1,13 +1,13 @@
 #!/bin/bash
 set -e
 
-APP_NAME=$1
-
 #############
 # Preparation
 #############
 
 DIR_MAIN=$PWD
+
+APP_NAME=`cat $DIR_MAIN/tmp/app_name.txt`
 
 DIR_APP=$DIR_MAIN/$APP_NAME
 
