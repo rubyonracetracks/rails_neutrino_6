@@ -180,9 +180,13 @@ then
   echo 'bundle exec rake db:migrate'
   cd $DIR_APP && bundle exec rake db:migrate
 
-  echo '---------------------'
-  echo 'bundle exec rake test'
-  cd $DIR_APP && bundle exec rake test
+  CHECK_REXML=`grep rexml Gemfile.lock`
+  if [ -n "$CHECK_REXML" ]
+  then
+    echo '---------------------'
+    echo 'bundle exec rake test'
+    cd $DIR_APP && bundle exec rake test
+  fi
 
   echo '**********************************'
   echo 'Your new Rails app has been built!'

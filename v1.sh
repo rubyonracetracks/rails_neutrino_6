@@ -21,4 +21,4 @@ echo 'N' > tmp/add_static_pages.txt
 echo 'N' > tmp/add_other.txt
 
 mkdir -p log
-bash $PWD/build-rails.sh "$APP_NAME" 2>&1 | tee log/$APP_NAME.txt
+bash $PWD/build-rails.sh 2>&1 | tee log/$APP_NAME.txt
