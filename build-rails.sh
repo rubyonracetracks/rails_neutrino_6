@@ -162,3 +162,35 @@ fi
 echo 'Cleaning up the app'
 rm -rf $DIR_APP/mod
 rm $DIR_APP/mod*
+
+##########################################
+# FINAL TESTING (virtual environment only)
+##########################################
+if [ "$HOST_ENV" = 'N' ]
+then
+  echo '---------------------'
+  echo 'yarn install --silent'
+  cd $DIR_APP && yarn install --silent
+
+  echo '----------------------'
+  echo 'bundle install --quiet'
+  cd $DIR_APP && bundle install --quiet
+
+  echo '---------------------------'
+  echo 'bundle exec rake db:migrate'
+  cd $DIR_APP && bundle exec rake db:migrate
+
+  echo '---------------------'
+  echo 'bundle exec rake test'
+  cd $DIR_APP && bundle exec rake test
+
+  echo '**********************************'
+  echo 'Your new Rails app has been built!'
+  echo 'It is in:'
+  echo "$DIR_APP"
+
+  if [ -f $DIR_APP/docker/build ]; then
+    echo 'From your HOST environment, run the "docker/build" script'
+    echo 'from within the root directory of your new app.'
+  fi
+fi
