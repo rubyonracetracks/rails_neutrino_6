@@ -21,3 +21,6 @@ ruby mod-01-01.rb
 
 git add .
 git commit -m 'Updated .gitignore'
+
+# Rename master branch as main
+git branch -m master main

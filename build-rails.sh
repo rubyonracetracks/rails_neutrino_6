@@ -176,9 +176,12 @@ then
   echo 'bundle install --quiet'
   cd $DIR_APP && bundle install --quiet
 
-  echo '---------------------------'
-  echo 'bundle exec rake db:migrate'
-  cd $DIR_APP && bundle exec rake db:migrate
+  # Skip the migration until docker/migrate is provided
+  if [ -f $DIR_APP/docker/migrate ]; then
+    echo '---------------------------'
+    echo 'bundle exec rake db:migrate'
+    cd $DIR_APP && bundle exec rake db:migrate
+  fi
   
   # Skip the testing if rexml is not in Gemfile.lock
   if cat Gemfile.lock | grep rexml
@@ -190,7 +193,7 @@ then
 
   echo '**********************************'
   echo 'Your new Rails app has been built!'
-  echo 'It is in:'
+  echo 'Path:'
   echo "$DIR_APP"
 
   if [ -f $DIR_APP/docker/build ]; then
