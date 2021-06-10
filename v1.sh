@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 bash credentials.sh
 mkdir -p tmp
