@@ -22,5 +22,3 @@ echo 'N' > tmp/add_other.txt
 
 mkdir -p log
 bash $PWD/start-docker.sh 2>&1 | tee log/$APP_NAME.txt
-
-# bash $PWD/build-rails.sh 2>&1 | tee log/$APP_NAME.txt
