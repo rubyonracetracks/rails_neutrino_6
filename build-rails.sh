@@ -179,9 +179,9 @@ then
   echo '---------------------------'
   echo 'bundle exec rake db:migrate'
   cd $DIR_APP && bundle exec rake db:migrate
-
-  CHECK_REXML=`grep rexml Gemfile.lock`
-  if [ -n "$CHECK_REXML" ]
+  
+  # Skip the testing if rexml is not in Gemfile.lock
+  if cat Gemfile.lock | grep rexml
   then
     echo '---------------------'
     echo 'bundle exec rake test'
