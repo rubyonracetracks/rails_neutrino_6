@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+echo '234q645w7w45ujsssj6i'
+
 echo '----------'
 pwd
 ls -l
@@ -12,7 +14,7 @@ echo "$GIT_EMAIL"
 echo "$GIT_NAME"
 echo '----------'
 
-git config --global user.email "$GIT_EMAIL"
-git config --global user.name "$GIT_NAME"
+# git config --global user.email "$GIT_EMAIL"
+# git config --global user.name "$GIT_NAME"
 
 bash build-rails.sh

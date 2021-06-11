@@ -2,8 +2,13 @@
 
 # Set Git credentials in continuous integration environment
 if [ -n "$CI" ]; then
+  echo 'Setting Git credentials'
   git config --global user.email 'ci@example.com'
   git config --global user.name "Continuous Integration"
+  GIT_EMAIL=`git config --global user.email`
+  GIT_NAME=`git config --global user.name`
+  echo "git config --global user.email: $GIT_EMAIL"
+  echo "git config --global user.name: $GIT_NAME"
 fi
 
 # Output:
