@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 # Set Git credentials in continuous integration environment
 if [ -n "$CI" ]; then
