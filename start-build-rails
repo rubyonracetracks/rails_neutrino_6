@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+echo '234q645w7w45ujsssj6i'
+
 echo '----------'
 pwd
 ls -l
