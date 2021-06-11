@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Output:
 # First argument if it is not blank
