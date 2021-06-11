@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
 
+# Set Git credentials in continuous integration environment
+if [ -n "$CI" ]; then
+  git config --global user.email 'ci@example.com'
+  git config --global user.name "Continuous Integration"
+fi
+
 # Output:
 # First argument if it is not blank
 # Second argument if first argument is blank
