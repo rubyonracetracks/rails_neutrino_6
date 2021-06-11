@@ -1,0 +1,18 @@
+name: Testing (h2.sh)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run the h2.sh script
+      run: bash h2.sh
