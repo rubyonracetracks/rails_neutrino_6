@@ -1,4 +1,18 @@
 #!/bin/bash
 set -e
 
+echo '----------'
+pwd
+ls -l
+GIT_EMAIL=`cat $PWD/tmp/git_email.txt`
+GIT_NAME=`cat $PWD/tmp/git_name.txt`
+
+echo '----------'
+echo "$GIT_EMAIL"
+echo "$GIT_NAME"
+echo '----------'
+
+git config --global user.email "$GIT_EMAIL"
+git config --global user.name "$GIT_NAME"
+
 bash build-rails.sh
