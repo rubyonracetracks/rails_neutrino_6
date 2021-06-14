@@ -2,7 +2,7 @@
 
 Welcome to Rails Neutrino! This repository automatically creates a new high-quality Rails 6 app from scratch. It takes just a few minutes to complete a task that would require many hours of grueling work to do manually.
 
-[![Testing (h2.sh)](https://github.com/rubyonracetracks/rails_neutrino_6/actions/workflows/h2.yml/badge.svg)](https://github.com/rubyonracetracks/rails_neutrino_6/actions/workflows/h2.yml)
+[![Testing (h2.sh)](https://github.com/rubyonracetracks/rails_neutrino_6/actions/workflows/ci2.yml/badge.svg)](https://github.com/rubyonracetracks/rails_neutrino_6/actions/workflows/h2.yml)
 
 ## Naming
 
