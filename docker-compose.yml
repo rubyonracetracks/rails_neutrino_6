@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/home/winner/neutrino
+    environment:
+      - BUNDLE_PATH=/home/winner/neutrino/tmp/bundle
+      - BUNDLE_APP_CONFIG=/home/winner/neutrino/.bundle
+      - GEM_HOME=/home/winner/neutrino/tmp/gem_home
+    user: winner

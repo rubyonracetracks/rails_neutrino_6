@@ -1,4 +1,4 @@
-name: Testing (h2.sh)
+name: Testing (ci2.sh)
 
 on:
   push:
@@ -14,5 +14,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run the h2.sh script
-      run: bash h2.sh
+    - name: Run the ci2.sh script
+      run: bash ci2.sh
