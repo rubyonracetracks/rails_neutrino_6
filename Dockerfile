@@ -6,4 +6,4 @@ FROM registry.gitlab.com/rubyonracetracks/docker-debian-bullseye-rvm-rails-neutr
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN bash v2.sh
+RUN pwd && ls -l && bash v2.sh
