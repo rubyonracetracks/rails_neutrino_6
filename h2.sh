@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+bash credentials.sh
 mkdir -p tmp
 
 RAILS_VERSION='6'
@@ -21,4 +22,4 @@ echo 'N' > tmp/add_static_pages.txt
 echo 'N' > tmp/add_other.txt
 
 mkdir -p log
-bash $PWD/start-docker.sh 2>&1 | tee log/$APP_NAME.txt
+bash start-docker.sh 2>&1 | tee log/$APP_NAME.txt

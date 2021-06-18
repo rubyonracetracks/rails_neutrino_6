@@ -12,6 +12,17 @@ ADD_VULNERABILITY_TESTS=`cat tmp/add_vulnerability_tests.txt`
 ADD_STATIC_PAGES=`cat tmp/add_static_pages.txt`
 ADD_OTHER=`cat tmp/add_other.txt`
 
+# Git credentials
+if [ "$HOST_ENV" = 'Y' ]
+then
+  GIT_EMAIL=`cat tmp/git_email.txt`
+  GIT_NAME=`cat tmp/git_name.txt`
+  git config --global user.email "$GIT_EMAIL"
+  git config --global user.name "$GIT_NAME"
+fi
+bash credentials.sh
+
+# Display parameters
 DIR_MAIN=$PWD
 APP_NAME=`cat $DIR_MAIN/tmp/app_name.txt`
 DIR_APP=$DIR_MAIN/$APP_NAME
@@ -20,6 +31,14 @@ echo '---------'
 echo 'App Name:'
 echo "$APP_NAME"
 echo ''
+
+echo '----------'
+echo 'Git email:'
+git config --global user.email
+echo ''
+echo '---------'
+echo 'Git name:'
+git config --global user.name
 
 echo '-----------------'
 echo 'Scope parameters:'

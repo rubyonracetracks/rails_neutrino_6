@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
 
+# Set Git credentials in the continuous integration environment
+if [ "$CI" = 'Y' ]
+then
+  git config --global user.email 'ci@example.com'
+  git config --global user.name 'Continuous Integration'
+fi
+
 bash credentials.sh
 
 GIT_EMAIL="$(git config user.email)"
@@ -9,12 +16,6 @@ GIT_NAME="$(git config user.name)"
 echo "$GIT_EMAIL" > tmp/git_email.txt
 echo "$GIT_NAME" > tmp/git_name.txt
 
-docker run -i -t --rm -v ${PWD}:/home/winner/neutrino registry.gitlab.com/rubyonracetracks/docker-debian-bullseye-rvm-rails-neutrino6 /home/winner/neutrino/start-build-rails
+docker-compose build
 
-APP_NAME=`cat tmp/app_name.txt`
-DIR_APP=$PWD/$APP_NAME
-cd $DIR_APP && docker/build
-echo '**********************************'
-echo 'Your new Rails app has been built!'
-echo 'Path:'
-echo "$DIR_APP"
+docker-compose run web bash build-rails.sh
