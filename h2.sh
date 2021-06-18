@@ -23,3 +23,11 @@ echo 'N' > tmp/add_other.txt
 
 mkdir -p log
 bash start-docker.sh 2>&1 | tee log/$APP_NAME.txt
+
+echo '####################################'
+echo "BEGIN: docker/build-log in $APP_NAME"
+echo '####################################'
+cd $APP_NAME && docker/build-log
+echo '##################################'
+echo "END: docker/build-log in $APP_NAME"
+echo '##################################'

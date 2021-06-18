@@ -32,19 +32,9 @@ echo '###############################################'
 echo 'END: docker-compose run web bash build-rails.sh'
 echo '###############################################'
 
-
 APP_NAME=`cat tmp/app_name.txt`
 echo '#######'
 echo 'NEW APP'
 echo 'BEGIN: docker/build'
 echo '###################'
 cd $APP_NAME && docker/build
-echo '#######'
-echo 'NEW APP'
-echo 'END: docker/build'
-echo '#################'
-
-echo '**********************************'
-echo 'Your new Rails app has been built!'
-echo 'Path:'
-echo "$PWD/$APP_NAME"
