@@ -19,6 +19,10 @@ then
   GIT_NAME=`cat tmp/git_name.txt`
   git config --global user.email "$GIT_EMAIL"
   git config --global user.name "$GIT_NAME"
+  pwd
+  ls -l
+  ls -l /home/winner
+  ls -l /home/winner/neutrino
 fi
 bash credentials.sh
 
