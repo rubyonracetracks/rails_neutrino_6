@@ -3,6 +3,10 @@ set -e
 
 BUNDLER_VERSION=`awk '/BUNDLED WITH/{getline;print;}' Gemfile.lock`
 
+docker/run ls -l
+docker/run ls -l /home/winner
+docker/run ls -l /home/winner/myapp
+
 echo '---------------------------------------'
 echo "gem install bundler -v $BUNDLER_VERSION"
 docker/run gem install bundler -v $BUNDLER_VERSION
