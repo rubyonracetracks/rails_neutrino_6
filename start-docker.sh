@@ -36,6 +36,8 @@ APP_NAME=`cat tmp/app_name.txt`
 # In the GitHub Workflows continuous integration environment,
 # tasks are executed as user "runner", but the app is owned by
 # "runneradmin".
+echo '-------'
+echo "CI: $CI"
 if [ "$CI" = 'Y' ]
 then
   echo '---------------'
