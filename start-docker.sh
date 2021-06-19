@@ -2,7 +2,7 @@
 set -e
 
 # Set Git credentials in the continuous integration environment
-if [ "$CI" = 'Y' ]
+if [ "$CI" = 'true' ]
 then
   git config --global user.email 'ci@example.com'
   git config --global user.name 'Continuous Integration'
@@ -36,14 +36,9 @@ APP_NAME=`cat tmp/app_name.txt`
 # In the GitHub Workflows continuous integration environment,
 # tasks are executed as user "runner", but the app is owned by
 # "runneradmin".
-echo '-------'
-echo "CI: $CI"
-if [ "$CI" = 'Y' ]
+if [ "$CI" = 'true' ]
 then
-  echo '---------------'
-  echo 'TROUBLESHOOTING'
   sudo chown -R runner:runner $PWD
-  ls -l
 fi
 echo '#######'
 echo 'NEW APP'
