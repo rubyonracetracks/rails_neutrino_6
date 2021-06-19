@@ -2,7 +2,7 @@
 set -e
 
 # Set Git credentials in the continuous integration environment
-if [ "$CI" = 'Y' ]
+if [ "$CI" = 'true' ]
 then
   git config --global user.email 'ci@example.com'
   git config --global user.name 'Continuous Integration'
@@ -32,19 +32,16 @@ echo '###############################################'
 echo 'END: docker-compose run web bash build-rails.sh'
 echo '###############################################'
 
-
 APP_NAME=`cat tmp/app_name.txt`
+# In the GitHub Workflows continuous integration environment,
+# tasks are executed as user "runner", but the app is owned by
+# "runneradmin".
+if [ "$CI" = 'true' ]
+then
+  sudo chown -R runner:runner $PWD
+fi
 echo '#######'
 echo 'NEW APP'
 echo 'BEGIN: docker/build'
 echo '###################'
 cd $APP_NAME && docker/build
-echo '#######'
-echo 'NEW APP'
-echo 'END: docker/build'
-echo '#################'
-
-echo '**********************************'
-echo 'Your new Rails app has been built!'
-echo 'Path:'
-echo "$PWD/$APP_NAME"
