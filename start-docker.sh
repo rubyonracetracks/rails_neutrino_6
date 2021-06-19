@@ -39,6 +39,7 @@ APP_NAME=`cat tmp/app_name.txt`
 if [ "$CI" = 'Y' ]
 then
   sudo chown -R runner:runner $PWD
+  ls -l
 fi
 echo '#######'
 echo 'NEW APP'
