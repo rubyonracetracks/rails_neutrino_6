@@ -4,6 +4,8 @@ set -e
 # This script builds the Docker container, seeds the app with sample data, starts the server, runs the tests, and logs the screen output.
 
 DATE=`date +%Y%m%d-%H%M%S-%3N`
+pwd
+ls -l
 mkdir log/$DATE
 docker/build-log 2>&1 | tee log/$DATE/build.log
 wait
