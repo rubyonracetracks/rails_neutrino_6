@@ -33,6 +33,13 @@ echo 'END: docker-compose run web bash build-rails.sh'
 echo '###############################################'
 
 APP_NAME=`cat tmp/app_name.txt`
+# In the GitHub Workflows continuous integration environment,
+# tasks are executed as user "runner", but the app is owned by
+# "runneradmin".
+if [ "$CI" = 'Y' ]
+then
+  sudo chown -R runner:runner $PWD
+fi
 echo '#######'
 echo 'NEW APP'
 echo 'BEGIN: docker/build'
