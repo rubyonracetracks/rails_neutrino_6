@@ -15,11 +15,9 @@ set -e
 # END: PostgreSQL setup
 
 # BEGIN: Get Ruby version
-cp .ruby-version tmp/.ruby-version-process
-sed -i.bak "s|ruby-||g" tmp/.ruby-version-process
-rm tmp/.ruby-version-process.bak
-RUBY_VERSION_HERE=`cat tmp/.ruby-version-process`
-rm tmp/.ruby-version-process
+RUBY_VERSION_FILE='ruby-3.0.1'
+PREFIX='ruby-'
+RUBY_VERSION_HERE=${RUBY_VERSION_FILE/#$PREFIX}
 # END: Get Ruby version
 
 # Copy Dockerfile-template to Dockerfile
