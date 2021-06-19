@@ -38,6 +38,8 @@ APP_NAME=`cat tmp/app_name.txt`
 # "runneradmin".
 if [ "$CI" = 'Y' ]
 then
+  echo '---------------'
+  echo 'TROUBLESHOOTING'
   sudo chown -R runner:runner $PWD
   ls -l
 fi
