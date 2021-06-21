@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+exit 32523632
+
 # AGENDA:
 # * Add the docker/nuke and docker/nukec scripts (WICHTIG/LEGACY)
 
