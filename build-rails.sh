@@ -14,15 +14,27 @@ ADD_VULNERABILITY_TESTS=`cat tmp/add_vulnerability_tests.txt`
 ADD_STATIC_PAGES=`cat tmp/add_static_pages.txt`
 ADD_OTHER=`cat tmp/add_other.txt`
 
-# Git credentials
+# Preparation steps needed if this script was initiated in the host environment
 if [ "$HOST_ENV" = 'Y' ]
 then
+  echo 'Automatcally setting Git credentials in Docker environment'
+
+  # Git credentials
   GIT_EMAIL=`cat tmp/git_email.txt`
   GIT_NAME=`cat tmp/git_name.txt`
   git config --global user.email "$GIT_EMAIL"
   git config --global user.name "$GIT_NAME"
+else
+  # Git credentials
+  bash credentials.sh
 fi
-bash credentials.sh
+
+if [ "$CI_SETUP" = 'Y' ]
+then
+  # Ownership of everything in /home/winner directory
+  # The Docker environment is different in the CI setup
+  sudo chown -R winner:winner /home/winner
+fi
 
 # Display parameters
 DIR_MAIN=$PWD
