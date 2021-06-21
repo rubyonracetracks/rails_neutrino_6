@@ -1,4 +1,4 @@
-name: Testing (y1.sh)
+name: Testing (v1.sh)
 
 on:
   push:
@@ -14,5 +14,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run the y1.sh script
-      run: bash y1.sh
+    - name: Run the v1.sh script
+      run: bash v1.sh
