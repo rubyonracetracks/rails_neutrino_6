@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+CI_SETUP=$1
+
 # Basic parameters
 BASE_APP_URL='' # Will be updated later if necessary
 HOST_ENV=`cat tmp/host_env.txt`
@@ -192,10 +194,10 @@ echo 'Cleaning up the app'
 rm -rf $DIR_APP/mod
 rm $DIR_APP/mod*
 
-##########################################
-# FINAL TESTING (virtual environment only)
-##########################################
-if [ "$HOST_ENV" = 'N' ]
+####################################################################
+# FINAL TESTING (virtual environment and continuous integraton only)
+####################################################################
+if [ "$HOST_ENV" = 'N' ] || [ "$CI_SETUP" = 'Y' ]
 then
   echo '---------------------'
   echo 'yarn install --silent'
@@ -229,4 +231,6 @@ then
     echo 'From your HOST environment, run the "docker/build" script'
     echo 'from within the root directory of your new app.'
   fi
+else
+  echo 'Using the "docker/build" script to test the new app'
 fi

@@ -2,7 +2,7 @@
 set -e
 
 # Set Git credentials in the continuous integration environment
-if [ "$CI" = 'Y' ]
+if [ "$CI" = 'true' ]
 then
   git config --global user.email 'ci@example.com'
   git config --global user.name 'Continuous Integration'
@@ -24,26 +24,34 @@ echo '+++++++++++++++++++++++++'
 echo 'END: docker-compose build'
 echo '+++++++++++++++++++++++++'
 
-echo '#################################################'
-echo 'BEGIN: docker-compose run web bash build-rails.sh'
-echo '#################################################'
-docker-compose run web bash build-rails.sh
-echo '###############################################'
-echo 'END: docker-compose run web bash build-rails.sh'
-echo '###############################################'
-
-
 APP_NAME=`cat tmp/app_name.txt`
-echo '#######'
-echo 'NEW APP'
-echo 'BEGIN: docker/build'
-echo '###################'
-cd $APP_NAME && docker/build
-echo '#######'
-echo 'NEW APP'
-echo 'END: docker/build'
-echo '#################'
-
+if [ "$CI" = 'true' ]
+then
+  echo '#####################################################'
+  echo "BEGIN: docker-compose run web bash build-rails.sh 'Y'"
+  echo '#####################################################'
+  docker-compose run web bash build-rails.sh 'Y'
+  echo '###################################################'
+  echo "END: docker-compose run web bash build-rails.sh 'Y'"
+  echo '###################################################'
+else
+  echo '#################################################'
+  echo 'BEGIN: docker-compose run web bash build-rails.sh'
+  echo '#################################################'
+  docker-compose run web bash build-rails.sh
+  echo '###############################################'
+  echo 'END: docker-compose run web bash build-rails.sh'
+  echo '###############################################'
+  echo '#######'
+  echo 'NEW APP'
+  echo 'BEGIN: docker/build'
+  echo '###################'
+  cd $APP_NAME && docker/build
+  echo '#######'
+  echo 'NEW APP'
+  echo 'END: docker/build'
+  echo '#################'
+fi
 echo '**********************************'
 echo 'Your new Rails app has been built!'
 echo 'Path:'
