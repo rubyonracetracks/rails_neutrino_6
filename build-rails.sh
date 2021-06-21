@@ -36,6 +36,12 @@ then
   sudo chown -R winner:winner /home/winner
 fi
 
+if [ "$CI_SETUP" = 'Y' ] && [ "$HOST_ENV" = 'N' ]
+then
+  # Bundler is NOT already installed if you run this script in CI mode and virtual mode
+  gem install bundler
+fi
+
 # Display parameters
 DIR_MAIN=$PWD
 APP_NAME=`cat $DIR_MAIN/tmp/app_name.txt`
