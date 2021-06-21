@@ -29,7 +29,7 @@ else
   bash credentials.sh
 fi
 
-if [ "$CI_SETUP" = 'Y' ]
+if [ "$CI_SETUP" = 'Y' ] && [ "$HOST_ENV" = 'Y' ]
 then
   # Ownership of everything in /home/winner directory
   # The Docker environment is different in the CI setup
