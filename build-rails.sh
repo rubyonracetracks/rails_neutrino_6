@@ -153,6 +153,9 @@ get_base_app_url_virtual () {
   if [ "$DOCKERIZE" = 'Y' ]
   then
     BASE_APP_URL=`cat base_apps/v1.txt`
+  elif [ "$ADD_LINT" = 'Y' ]
+  then
+    BASE_APP_URL=`cat base_apps/v2.txt`
   fi
 }
 
@@ -206,6 +209,14 @@ then
   cd $DIR_APP && bash mod_app.sh '01-07' $TOGGLE_OUTLINE
   cd $DIR_APP && bash mod_app.sh '01-08' $TOGGLE_OUTLINE
   cd $DIR_APP && bash mod_app.sh '01-09' $TOGGLE_OUTLINE
+fi
+
+##########
+# ADD LINT
+##########
+if [ "$ADD_LINT" = 'Y' ]
+then
+  cd $DIR_APP && bash mod_app.sh '02-01' $TOGGLE_OUTLINE
 fi
 
 #########
