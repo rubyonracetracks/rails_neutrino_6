@@ -185,6 +185,11 @@ then
   cd $DIR_APP && bash mod_app.sh '01-01' $TOGGLE_OUTLINE
 else
   download_base_app
+
+  # Remove reference to the base repository
+  # Skipping this step means that changes get pushed to the base repository instead of a new one.
+  cd $DIR_APP && git remote remove origin
+
   prepare_mod_app
 fi
 
