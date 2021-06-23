@@ -11,8 +11,14 @@ InsertFromFile.add_end('mod-02-01-Gemfile.txt', 'Gemfile')
 puts 'bundle install --quiet'
 system('bundle install --quiet')
 StringInFile.replace("gem 'rubocop'", GemfileEntry.active('rubocop'),'Gemfile')
+StringInFile.replace("gem 'rubocop-rails'", GemfileEntry.active('rubocop-rails'),'Gemfile')
 puts 'bundle install --quiet'
 system('bundle install --quiet')
 
-puts 'bundle install --quiet'
-system('bundle install --quiet')
+puts 'Enabling docker/test_code in docker/build-log'
+StringInFile.replace('# docker/test_code', 'docker/test_code','docker/build-log')
+system('chmod +x docker/build-log')
+
+puts 'Enabling docker/cop in docker/test_code'
+StringInFile.replace('# docker/cop', 'docker/cop','docker/test_code')
+system('chmod +x docker/test_code')
