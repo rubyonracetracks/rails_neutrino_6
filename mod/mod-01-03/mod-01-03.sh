@@ -3,6 +3,7 @@ set -e
 
 # AGENDA:
 # * Add the docker/build and other scripts needed to build the Docker container and execute commands in it (WICHTIG/LEGACY)
+# * Add the Dockerfile to .gitignore (WICHTIG/LEGACY: except in legacy projects that are already Dockerized)
 
 echo '######################################'
 echo 'Unit 1 Chapter 3: Docker Build Scripts'
@@ -18,6 +19,9 @@ mv mod-01-03-docker_run docker/run
 chmod +x docker/run
 mv mod-01-03-docker_replace_sif docker/replace_sif
 chmod +x docker/replace_sif
+echo '' >> .gitignore
+echo 'Dockerfile' >> .gitignore
+echo '' >> .gitignore
 
 # Get the Node version
 NODE_V1=`node -v`
