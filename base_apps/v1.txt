@@ -1,1 +1,1 @@
-https://github.com/rubyonracetracks/rails6v1-20210622-042728-936.git
+https://github.com/rubyonracetracks/rails6v1-20210629-044432-293-.git
