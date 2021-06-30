@@ -6,7 +6,8 @@ set -e
 # * Add docker/cop script (WICHTIG/LEGACY: if necessary)
 # * Add docker/test_code script (WICHTIG/LEGACY)
 # * Enable docker/test_code in docker/build-log (WICHTIG/LEGACY)
-# * Enable docker/cop in docker/test_code (WICHTIG/LEGACY)
+# * Enable docker/cop in docker/test_code (WICHTIG/LEGACY: if necessary)
+# * Enable docker/cop in docker/git_check (WICHTIG/LEGACY: if necessary)
 # * WICHTIG/LEGACY: If the app does not already include RuboCop, do not add it.
 
 echo '############'

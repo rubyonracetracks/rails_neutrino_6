@@ -256,6 +256,13 @@ then
     cd $DIR_APP && bundle exec rake test
   fi
 
+  # Skip RuboCop until docker/cop-auto is provided
+  if [ -f $DIR_APP/docker/cop-auto ]; then
+    echo '----------------------'
+    echo 'bundle exec rubocop -D'
+    cd $DIR_APP && bundle exec rubocop -D
+  fi
+
   echo '**********************************'
   echo 'Your new Rails app has been built!'
   echo 'Path:'
