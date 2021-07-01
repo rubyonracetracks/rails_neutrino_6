@@ -10,7 +10,7 @@ echo 'Unit 2 Chapter 2: RuboCop Autocorrect'
 echo '#####################################'
 
 echo 'Adding docker/cop-auto'
-mv mod-02-01-docker-cop-auto docker/cop-auto
+mv mod-02-02-docker-cop-auto docker/cop-auto
 chmod +x docker/cop-auto
 
 git add .
