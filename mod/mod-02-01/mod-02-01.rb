@@ -22,3 +22,7 @@ system('chmod +x docker/build-log')
 puts 'Enabling docker/cop in docker/test_code'
 StringInFile.replace('# docker/cop', 'docker/cop','docker/test_code')
 system('chmod +x docker/test_code')
+
+puts 'Enabling docker/cop in docker/git_check'
+StringInFile.replace('# docker/cop', 'docker/cop','docker/git_check')
+system('chmod +x docker/git_check')
