@@ -219,6 +219,7 @@ then
   cd $DIR_APP && bash mod_app.sh '02-01' $TOGGLE_OUTLINE
   cd $DIR_APP && bash mod_app.sh '02-02' $TOGGLE_OUTLINE
   cd $DIR_APP && bash mod_app.sh '02-03' $TOGGLE_OUTLINE
+  cd $DIR_APP && bash mod_app.sh '02-04' $TOGGLE_OUTLINE
 fi
 
 #########
@@ -263,6 +264,13 @@ then
     echo '----------------------'
     echo 'bundle exec rubocop -D'
     cd $DIR_APP && bundle exec rubocop -D
+  fi
+
+  # Skip Rails Best Practices until docker/rbp is provided
+  if [ -f $DIR_APP/docker/rbp ]; then
+    echo '----------------------------------'
+    echo 'bundle exec rails_best_practices .'
+    cd $DIR_APP && bundle exec rails_best_practices .
   fi
 
   echo '**********************************'
