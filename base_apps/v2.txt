@@ -1,1 +1,1 @@
-https://github.com/rubyonracetracks/rails6v2-20210715-050628-302.git
+https://github.com/rails-neutrino-apps/rails6v2-20210719-194417-789.git
