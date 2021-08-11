@@ -1,1 +1,1 @@
-https://github.com/rails-neutrino-apps/rails6v2-20210719-194417-789.git
+https://github.com/rails-neutrino-6-apps/rails6v2-20210811-024953-660.git
