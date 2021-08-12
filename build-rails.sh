@@ -223,6 +223,15 @@ then
   cd $DIR_APP && bash mod_app.sh '02-05' $TOGGLE_OUTLINE
 fi
 
+###########################
+# ADD VULNERABILITY TESTING
+###########################
+if [ "$ADD_VULNERABILITY_TESTS" = 'Y' ]
+then
+  echo ''
+  # cd $DIR_APP && bash mod_app.sh '03-01' $TOGGLE_OUTLINE
+fi
+
 #########
 # CLEANUP
 #########
