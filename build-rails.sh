@@ -156,6 +156,9 @@ get_base_app_url_virtual () {
   elif [ "$ADD_LINT" = 'Y' ]
   then
     BASE_APP_URL=`cat base_apps/v2.txt`
+  elif [ "$ADD_VULNERABILITY_TESTS" = 'Y' ]
+  then
+    BASE_APP_URL=`cat base_apps/v3.txt`
   fi
 }
 
@@ -228,8 +231,7 @@ fi
 ###########################
 if [ "$ADD_VULNERABILITY_TESTS" = 'Y' ]
 then
-  echo ''
-  # cd $DIR_APP && bash mod_app.sh '03-01' $TOGGLE_OUTLINE
+  cd $DIR_APP && bash mod_app.sh '03-01' $TOGGLE_OUTLINE
 fi
 
 #########
@@ -249,6 +251,9 @@ then
   echo '---------------------'
   echo 'yarn install --silent'
   cd $DIR_APP && yarn install --silent
+
+  echo "$DIR_APP"
+  ls $DIR_APP
 
   echo '----------------------'
   echo 'bundle install --quiet'
@@ -281,6 +286,11 @@ then
     echo '----------------------------------'
     echo 'bundle exec rails_best_practices .'
     cd $DIR_APP && bundle exec rails_best_practices .
+  fi
+
+  # Skip Brakeman until bin/brakeman is provided
+  if [ -f $DIR_APP/bin/brakeman ]; then
+    cd $DIR_APP && bin/brakeman
   fi
 
   echo '**********************************'
