@@ -232,6 +232,7 @@ fi
 if [ "$ADD_VULNERABILITY_TESTS" = 'Y' ]
 then
   cd $DIR_APP && bash mod_app.sh '03-01' $TOGGLE_OUTLINE
+  cd $DIR_APP && bash mod_app.sh '03-02' $TOGGLE_OUTLINE
 fi
 
 #########
@@ -251,9 +252,6 @@ then
   echo '---------------------'
   echo 'yarn install --silent'
   cd $DIR_APP && yarn install --silent
-
-  echo "$DIR_APP"
-  ls $DIR_APP
 
   echo '----------------------'
   echo 'bundle install --quiet'
@@ -291,6 +289,11 @@ then
   # Skip Brakeman until bin/brakeman is provided
   if [ -f $DIR_APP/bin/brakeman ]; then
     cd $DIR_APP && bin/brakeman
+  fi
+
+  # Skip bundler-audit until bin/audit is provided
+  if [ -f $DIR_APP/bin/audit ]; then
+    cd $DIR_APP && bin/audit
   fi
 
   echo '**********************************'

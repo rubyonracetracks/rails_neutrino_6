@@ -29,4 +29,4 @@ chmod +x bin/brakeman
 ruby mod-03-01.rb
 
 git add .
-git commit -m 'Added RuboCop'
+git commit -m 'Added Brakeman'
