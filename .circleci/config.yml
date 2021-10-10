@@ -4,6 +4,7 @@ jobs:
     - checkout
 
   test-h2:
+    <<: *default
     steps:
       - run:
           name: h2
