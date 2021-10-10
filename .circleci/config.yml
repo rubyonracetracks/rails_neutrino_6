@@ -15,9 +15,10 @@ jobs:
             echo 'Rails Neutrino' > $PWD/tmp/git_name.tx 
   test-v1:
     <<: *default
-    run:
-      name: rails new
-      command: bash v1.sh
+    steps:
+      run:
+        name: rails new
+        command: bash v1.sh
 
 workflows:
   version: 2
