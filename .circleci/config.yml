@@ -17,17 +17,17 @@ jobs:
           name: rails new
           command: bash v1.sh
 
-  test-h1:
+  test-h2:
     <<: *default
     steps:
       - checkout
       - run:
-          name: h1
-          command: bash h1.sh
+          name: h2
+          command: bash h2.sh
 
 workflows:
   version: 2
   tests:
     jobs:
       - test-v1
-      - test-h1
+      - test-h2
