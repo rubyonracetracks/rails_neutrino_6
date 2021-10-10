@@ -1,0 +1,16 @@
+jobs:
+  default: &default
+  steps:
+    - checkout
+
+  test-h2:
+    steps:
+      - run:
+          name: h2
+          command: bash h2.sh
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - test-h2
