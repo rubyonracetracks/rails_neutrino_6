@@ -29,18 +29,25 @@ else
   bash credentials.sh
 fi
 
-if [ "$CI_SETUP" = 'Y' ] && [ "$HOST_ENV" = 'Y' ]
+if [ "$HOST_ENV" = 'Y' ]
 then
   # Ownership of everything in /home/winner directory
   # The Docker environment is different in the CI setup
   sudo chown -R winner:winner /home/winner
 fi
 
-if [ "$CI_SETUP" = 'Y' ] && [ "$HOST_ENV" = 'N' ]
+if [ "$HOST_ENV" = 'N' ]
 then
   # Bundler is NOT already installed if you run this script in CI mode and virtual mode
   gem install bundler
 fi
+
+if [ "$CIRCLECI" = 'true' ]
+then
+  # Needed for CircleCI environment
+  gem install rails
+fi
+
 
 # Display parameters
 DIR_MAIN=$PWD
