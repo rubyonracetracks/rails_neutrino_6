@@ -12,7 +12,8 @@ jobs:
           command: |
             mkdir -p $PWD/tmp
             echo 'rails_neutrino@rubyonracetracks.com' > $PWD/tmp/git_email.txt
-            echo 'Rails Neutrino' > $PWD/tmp/git_name.tx 
+            echo 'Rails Neutrino' > $PWD/tmp/git_name.txt
+            gem install rails
   test-v1:
     <<: *default
     steps:
