@@ -8,9 +8,6 @@ jobs:
       - image: circleci/ruby:latest
     steps:
       - checkout
-      - run: |
-          apt-get update
-          apt-get install -y yarn
 
   test-v1:
     <<: *default

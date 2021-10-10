@@ -44,8 +44,15 @@ fi
 
 if [ "$CIRCLECI" = 'true' ]
 then
-  # Needed for CircleCI environment
+  echo '--------------------------------------------'
+  echo 'BEGIN: steps needed for CircleCI environment'
+  echo '--------------------------------------------'
+  sudo apt-get update
+  sudo apt-get install -y yarn
   gem install rails
+  echo '-----------------------------------------------'
+  echo 'FINISHED: steps needed for CircleCI environment'
+  echo '-----------------------------------------------'
 fi
 
 
