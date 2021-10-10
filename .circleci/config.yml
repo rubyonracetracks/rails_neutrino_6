@@ -1,0 +1,23 @@
+jobs:
+  default: &default
+    machine:
+      enable: true
+    environment:
+      DEVELOPMENT: 1
+    steps:
+      - checkout
+
+  test-h2:
+    <<: *default
+    steps:
+      - checkout
+      - run:
+          name: h2
+          command: |
+            bash h2.sh
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - test-h2
