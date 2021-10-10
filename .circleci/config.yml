@@ -4,10 +4,10 @@ jobs:
       - image: docker:17.05.0-ce-git
     steps:
       - checkout
-      - run
+      - run:
         - command: |
-          sudo apt-get update
-          sudo apt-get install -y bash
+            sudo apt-get update
+            sudo apt-get install -y bash
 
   test-h2:
     <<: *default
