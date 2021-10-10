@@ -16,9 +16,9 @@ jobs:
       - run:
           name: h2
           command: |
-            pwd
-            ls -l
-            sh h2.sh
+            sudo apt-get update
+            sudo apt-get install -y bash
+            bash h2.sh
 
 workflows:
   version: 2
