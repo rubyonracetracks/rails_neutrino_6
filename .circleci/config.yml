@@ -8,9 +8,11 @@ jobs:
       - image: circleci/ruby:latest
     steps:
       - checkout
-      - run: mkdir -p $PWD/tmp
-      - run: echo 'rails_neutrino@rubyonracetracks.com' > $PWD/tmp/git_email.txt
-      - run: echo 'Rails Neutrino' > $PWD/tmp/git_name.tx 
+      - run:
+          command: |
+            mkdir -p $PWD/tmp
+            echo 'rails_neutrino@rubyonracetracks.com' > $PWD/tmp/git_email.txt
+            echo 'Rails Neutrino' > $PWD/tmp/git_name.tx 
   test-v1:
     <<: *default
     run:
