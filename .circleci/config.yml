@@ -12,6 +12,7 @@ jobs:
   test-h2:
     <<: *default
     steps:
+      - checkout
       - run:
           name: h2
           command: |
