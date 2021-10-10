@@ -1,7 +1,9 @@
 jobs:
   default: &default
-    docker:
-      - image: docker:17.05.0-ce-git
+    machine:
+      enable: true
+    environment:
+      DEVELOPMENT: 1
     steps:
       - checkout
       - run:
