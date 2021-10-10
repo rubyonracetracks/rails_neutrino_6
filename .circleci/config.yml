@@ -14,7 +14,7 @@ jobs:
     steps:
       - run:
           name: h2
-          command: bash h2.sh
+          command: sh h2.sh
 
 workflows:
   version: 2
