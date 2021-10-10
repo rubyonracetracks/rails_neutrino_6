@@ -261,11 +261,17 @@ rm $DIR_APP/mod*
 ####################################################################
 # FINAL TESTING (virtual environment and continuous integraton only)
 ####################################################################
-if [ "$HOST_ENV" = 'N' ] || [ "$CI_SETUP" = 'Y' ]
+if [ "$HOST_ENV" = 'N' ]
 then
-  echo '---------------------'
-  echo 'yarn install --silent'
-  cd $DIR_APP && yarn install --silent
+  if [ "$CIRCLECI" = 'true' ]; then
+    echo '------------'
+    echo 'yarn install'
+    cd $DIR_APP && yarn install
+  else
+    echo '---------------------'
+    echo 'yarn install --silent'
+    cd $DIR_APP && yarn install --silent
+  fi
 
   echo '----------------------'
   echo 'bundle install --quiet'
