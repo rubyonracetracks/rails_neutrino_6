@@ -18,12 +18,12 @@ jobs:
           command: bash v1.sh
 
   test-h1:
-  <<: *default
-  steps:
-    - checkout
-    - run:
-        name: h1
-        command: bash h1.sh
+    <<: *default
+    steps:
+      - checkout
+      - run:
+          name: h1
+          command: bash h1.sh
 
 workflows:
   version: 2
