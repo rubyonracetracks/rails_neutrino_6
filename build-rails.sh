@@ -48,7 +48,7 @@ then
   echo 'BEGIN: steps needed for CircleCI environment'
   echo '--------------------------------------------'
   sudo apt-get update
-  sudo apt-get install -y yarn
+  curl -o- -L https://yarnpkg.com/install.sh | bash
   gem install rails
   echo '-----------------------------------------------'
   echo 'FINISHED: steps needed for CircleCI environment'
