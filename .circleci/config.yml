@@ -18,9 +18,8 @@ jobs:
           command: bash v1.sh
 
   test-h2:
-    <<: *default
     steps:
-      - checkout
+      machine: true
       - run:
           name: h2
           command: bash h2.sh
