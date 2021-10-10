@@ -16,9 +16,10 @@ jobs:
   test-v1:
     <<: *default
     steps:
-      run:
-        name: rails new
-        command: bash v1.sh
+      - checkout
+      - run:
+          name: rails new
+          command: bash v1.sh
 
 workflows:
   version: 2
