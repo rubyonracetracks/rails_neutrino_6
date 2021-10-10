@@ -15,6 +15,7 @@ jobs:
       - run:
           name: h2
           command: |
+            pwd
             ls -l
             sh h2.sh
 
