@@ -7,17 +7,17 @@ jobs:
     steps:
       - checkout
 
-  test-h2:
+  test-h1:
     <<: *default
     steps:
       - checkout
       - run:
-          name: h2
+          name: h1
           command: |
-            bash h2.sh
+            bash h1.sh
 
 workflows:
   version: 2
   tests:
     jobs:
-      - test-h2
+      - test-h1
