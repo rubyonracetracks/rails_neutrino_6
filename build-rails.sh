@@ -27,6 +27,13 @@ else
   bash credentials.sh
 fi
 
+if [ "$CI" = 'true' ] && [ "$HOST_ENV" = 'Y' ]
+then
+  # Ownership of everything in /home/winner directory
+  # The Docker environment is different in the CI setup
+  sudo chown -R winner:winner /home/winner
+fi
+
 # Display parameters
 DIR_MAIN=$PWD
 APP_NAME=`cat $DIR_MAIN/tmp/app_name.txt`
