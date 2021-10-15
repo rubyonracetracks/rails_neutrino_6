@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-CI_SETUP=$1
-
 # Basic parameters
 BASE_APP_URL='' # Will be updated later if necessary
 HOST_ENV=`cat tmp/host_env.txt`
@@ -27,19 +25,6 @@ then
 else
   # Git credentials
   bash credentials.sh
-fi
-
-if [ "$CI_SETUP" = 'Y' ] && [ "$HOST_ENV" = 'Y' ]
-then
-  # Ownership of everything in /home/winner directory
-  # The Docker environment is different in the CI setup
-  sudo chown -R winner:winner /home/winner
-fi
-
-if [ "$CI_SETUP" = 'Y' ] && [ "$HOST_ENV" = 'N' ]
-then
-  # Bundler is NOT already installed if you run this script in CI mode and virtual mode
-  gem install bundler
 fi
 
 # Display parameters
@@ -244,10 +229,10 @@ echo 'Cleaning up the app'
 rm -rf $DIR_APP/mod
 rm $DIR_APP/mod*
 
-####################################################################
-# FINAL TESTING (virtual environment and continuous integraton only)
-####################################################################
-if [ "$HOST_ENV" = 'N' ] || [ "$CI_SETUP" = 'Y' ]
+##########################################################################################
+# FINAL TESTING (applies when Rails Neutrino is activated in the virtual environment only)
+##########################################################################################
+if [ "$HOST_ENV" = 'N' ]
 then
   echo '---------------------'
   echo 'yarn install --silent'
