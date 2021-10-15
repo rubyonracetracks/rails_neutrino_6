@@ -27,6 +27,8 @@ else
   bash credentials.sh
 fi
 
+env
+
 if [ "$CI" = 'true' ] && [ "$HOST_ENV" = 'Y' ]
 then
   # Ownership of everything in /home/winner directory
