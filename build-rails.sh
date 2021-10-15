@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+aetgoajweagajobhiarh
+
 # Basic parameters
 BASE_APP_URL='' # Will be updated later if necessary
 HOST_ENV=`cat tmp/host_env.txt`
@@ -26,8 +28,6 @@ else
   # Git credentials
   bash credentials.sh
 fi
-
-env
 
 if [ "$CI" = 'true' ] && [ "$HOST_ENV" = 'Y' ]
 then
