@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+aetgoajweagajobhiarh
+
 # Basic parameters
 BASE_APP_URL='' # Will be updated later if necessary
 HOST_ENV=`cat tmp/host_env.txt`
@@ -25,6 +27,15 @@ then
 else
   # Git credentials
   bash credentials.sh
+fi
+
+if [ "$CI" = 'true' ] && [ "$HOST_ENV" = 'Y' ]
+then
+  # Ownership of everything in /home/winner directory
+  # The Docker environment is different in the CI setup
+  echo '----------------------------------------'
+  echo 'sudo chown -R winner:winner /home/winner'
+  sudo chown -R winner:winner /home/winner
 fi
 
 # Display parameters
