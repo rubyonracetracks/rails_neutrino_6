@@ -9,6 +9,7 @@ jobs:
   test0:
     <<: *default
     steps:
+      - checkout
       - run:
           name: CircleCI-0
           command: bash circleci0.sh.sh
