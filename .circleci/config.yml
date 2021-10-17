@@ -14,7 +14,6 @@ jobs:
       - run:
           name: h1
           command: |
-            set -e
             bash h1.sh
 
 workflows:
