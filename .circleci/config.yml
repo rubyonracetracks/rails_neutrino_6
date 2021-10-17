@@ -13,3 +13,9 @@ jobs:
       - run:
           name: CircleCI-0
           command: bash circleci0.sh.sh
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - test0
