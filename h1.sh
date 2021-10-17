@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-
-asedgaadsgadsga
-
 bash credentials.sh
 mkdir -p tmp
 
