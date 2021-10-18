@@ -12,7 +12,9 @@ jobs:
       - checkout
       - run:
           name: CircleCI-0
-          command: bash circleci0.sh
+          command: |
+            set -e
+            bash circleci0.sh
 
 workflows:
   version: 2
