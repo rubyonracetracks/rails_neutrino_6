@@ -1,23 +1,23 @@
+version: 2.1
 jobs:
   default: &default
-    machine:
-      enable: true
-    environment:
-      DEVELOPMENT: 1
+    docker:
+      - image: circleci/ruby:latest
     steps:
       - checkout
 
-  test-h1:
+  test0:
     <<: *default
     steps:
       - checkout
       - run:
-          name: h1
+          name: CircleCI-0
           command: |
-            bash h1.sh
+            set -e
+            bash circleci0.sh
 
 workflows:
   version: 2
   tests:
     jobs:
-      - test-h1
+      - test0
