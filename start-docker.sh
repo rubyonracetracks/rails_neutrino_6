@@ -48,7 +48,7 @@ if [ "$CIRCLECI" = 'true' ]
 then
   # Change ownership of everything in $APP_NAME directory to circleci
   # Necessary to prevent permission errors
-  chown -R circleci:circleci $APP_NAME
+  sudo chown -R circleci:circleci $APP_NAME
 fi
 
 echo '#######'
