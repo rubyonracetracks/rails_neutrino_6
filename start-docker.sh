@@ -42,16 +42,18 @@ else
   echo '###############################################'
   echo 'END: docker-compose run web bash build-rails.sh'
   echo '###############################################'
-  echo '#######'
-  echo 'NEW APP'
-  echo 'BEGIN: docker/build'
-  echo '###################'
-  cd $APP_NAME && docker/build
-  echo '#######'
-  echo 'NEW APP'
-  echo 'END: docker/build'
-  echo '#################'
 fi
+
+echo '#######'
+echo 'NEW APP'
+echo 'BEGIN: docker/build'
+echo '###################'
+cd $APP_NAME && docker/build
+echo '#######'
+echo 'NEW APP'
+echo 'END: docker/build'
+echo '#################'
+
 
 echo '**********************************'
 echo 'Your new Rails app has been built!'
