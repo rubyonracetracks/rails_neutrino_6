@@ -44,27 +44,12 @@ else
   echo '###############################################'
 fi
 
-env
-
-echo '---'
-echo 'pwd'
-pwd
-
-echo '-----'
-echo 'ls -l'
-ls -l
-
-echo '---------------'
-echo "ls -l $APP_NAME"
-ls -l $APP_NAME
-
-echo '------'
-echo 'whoami'
-whoami
-
-echo '-----------'
-echo 'ls -l /home'
-ls -l /home
+if [ "$CIRCLECI" = 'true' ]
+then
+  # Change ownership of everything in $APP_NAME directory to circleci
+  # Necessary to prevent permission errors
+  chown -R circleci:circleci $APP_NAME
+fi
 
 echo '#######'
 echo 'NEW APP'
