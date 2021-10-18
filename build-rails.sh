@@ -2,6 +2,7 @@
 set -e
 
 # Basic parameters
+CI_SETUP=$1 # Set to "Y" for continuous integration setups
 BASE_APP_URL='' # Will be updated later if necessary
 HOST_ENV=`cat tmp/host_env.txt`
 ANNOTATE=`cat tmp/annotate.txt`
@@ -25,6 +26,13 @@ then
 else
   # Git credentials
   bash credentials.sh
+fi
+
+if [ "$CI_SETUP" = 'Y' ] && [ "$HOST_ENV" = 'Y' ]
+then
+  # Ownership of everything in /home/winner directory
+  # The Docker environment is different in the CI setup
+  sudo chown -R winner:winner /home/winner
 fi
 
 # Display parameters
