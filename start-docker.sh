@@ -25,13 +25,32 @@ echo 'END: docker-compose build'
 echo '+++++++++++++++++++++++++'
 
 APP_NAME=`cat tmp/app_name.txt`
-echo '#################################################'
-echo 'BEGIN: docker-compose run web bash build-rails.sh'
-echo '#################################################'
-docker-compose run web bash build-rails.sh
-echo '###############################################'
-echo 'END: docker-compose run web bash build-rails.sh'
-echo '###############################################'
+if [ "$CI" = 'true' ]
+then
+  echo '#####################################################'
+  echo "BEGIN: docker-compose run web bash build-rails.sh 'Y'"
+  echo '#####################################################'
+  docker-compose run web bash build-rails.sh 'Y'
+  echo '###################################################'
+  echo "END: docker-compose run web bash build-rails.sh 'Y'"
+  echo '###################################################'
+else
+  echo '#################################################'
+  echo 'BEGIN: docker-compose run web bash build-rails.sh'
+  echo '#################################################'
+  docker-compose run web bash build-rails.sh
+  echo '###############################################'
+  echo 'END: docker-compose run web bash build-rails.sh'
+  echo '###############################################'
+fi
+
+if [ "$CIRCLECI" = 'true' ]
+then
+  # Change ownership of everything in $APP_NAME directory to circleci
+  # Necessary to prevent permission errors
+  sudo chown -R circleci:circleci $APP_NAME
+fi
+
 echo '#######'
 echo 'NEW APP'
 echo 'BEGIN: docker/build'
@@ -41,6 +60,7 @@ echo '#######'
 echo 'NEW APP'
 echo 'END: docker/build'
 echo '#################'
+
 
 echo '**********************************'
 echo 'Your new Rails app has been built!'
