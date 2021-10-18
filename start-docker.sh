@@ -54,6 +54,14 @@ echo '-----'
 echo 'ls -l'
 ls -l
 
+echo '---------------'
+echo "ls -l $APP_NAME"
+ls -l $APP_NAME
+
+echo '------'
+echo 'whoami'
+whoami
+
 echo '#######'
 echo 'NEW APP'
 echo 'BEGIN: docker/build'
