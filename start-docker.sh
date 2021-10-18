@@ -46,6 +46,14 @@ fi
 
 env
 
+echo '---'
+echo 'pwd'
+pwd
+
+echo '-----'
+echo 'ls -l'
+ls -l
+
 echo '#######'
 echo 'NEW APP'
 echo 'BEGIN: docker/build'
