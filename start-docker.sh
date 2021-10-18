@@ -62,6 +62,10 @@ echo '------'
 echo 'whoami'
 whoami
 
+echo '-----------'
+echo 'ls -l /home'
+ls -l /home
+
 echo '#######'
 echo 'NEW APP'
 echo 'BEGIN: docker/build'
