@@ -44,6 +44,8 @@ else
   echo '###############################################'
 fi
 
+env
+
 echo '#######'
 echo 'NEW APP'
 echo 'BEGIN: docker/build'
