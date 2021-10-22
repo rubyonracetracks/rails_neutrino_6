@@ -5,7 +5,7 @@ bash credentials.sh
 mkdir -p tmp
 
 RAILS_VERSION='6'
-MODE='v1'
+MODE='v0'
 echo 'N' > tmp/host_env.txt
 echo 'N' > tmp/annotate.txt
 
