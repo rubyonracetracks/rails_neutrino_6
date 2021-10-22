@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+adsgjlasdgas
+
 # Basic parameters
 BASE_APP_URL='' # Will be updated later if necessary
 HOST_ENV=`cat tmp/host_env.txt`
@@ -100,6 +102,13 @@ echo '--------------------'
 echo 'gem list "^bundler$"'
 gem list "^bundler$"
 echo ''
+
+if [ "$CI" = 'true' ]
+then
+  echo '-----------------'
+  echo 'gem install rails'
+  gem install rails
+fi
 
 echo '--------'
 echo 'rails -v'
