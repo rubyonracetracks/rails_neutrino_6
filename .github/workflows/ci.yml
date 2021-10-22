@@ -19,4 +19,5 @@ jobs:
         run: ruby -v
       - name: Prepare database and run tests
         run: |
+          env
           bash v1.sh
