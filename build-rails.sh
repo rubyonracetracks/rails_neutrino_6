@@ -102,6 +102,7 @@ gem list "^bundler$"
 echo ''
 
 if [ "$CI" = 'true' ]
+then
   echo '-----------------'
   echo 'gem install rails'
   gem install rails
