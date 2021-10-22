@@ -137,7 +137,7 @@ get_base_app_url_host () {
 get_base_app_url_virtual () {
   if [ "$DOCKERIZE" = 'Y' ]
   then
-    BASE_APP_URL=`cat base_apps/v1.txt`
+    BASE_APP_URL=`cat base_apps/v0.txt`
   elif [ "$ADD_LINT" = 'Y' ]
   then
     BASE_APP_URL=`cat base_apps/v2.txt`
@@ -229,9 +229,9 @@ echo 'Cleaning up the app'
 rm -rf $DIR_APP/mod
 rm $DIR_APP/mod*
 
-##########################################################################################
-# FINAL TESTING (applies when Rails Neutrino is activated in the virtual environment only)
-##########################################################################################
+#############################################################################
+# FINAL TESTING (skip if Rails Neutrino is activated in the host environment)
+#############################################################################
 if [ "$HOST_ENV" = 'N' ]
 then
   echo '---------------------'
@@ -249,9 +249,8 @@ then
     cd $DIR_APP && bundle exec rake db:migrate
   fi
   
-  # Skip the testing if rexml is not in Gemfile.lock
-  if cat Gemfile.lock | grep rexml
-  then
+  # Skip the testing until docker/test is provided
+  if [ -f $DIR_APP/docker/test ]; then
     echo '---------------------'
     echo 'bundle exec rake test'
     cd $DIR_APP && bundle exec rake test
