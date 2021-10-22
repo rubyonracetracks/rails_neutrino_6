@@ -2,8 +2,6 @@
 
 Welcome to Rails Neutrino! This repository automatically creates a new high-quality Rails 6 app from scratch. It takes just a few minutes to complete a task that would require many hours of grueling work to do manually.
 
-[![CircleCI](https://circleci.com/gh/rubyonracetracks/rails_neutrino_6/tree/main.svg?style=svg)](https://circleci.com/gh/rubyonracetracks/rails_neutrino_6/tree/main)
-
 ## Naming
 
 A neutrino is type of subatomic particle with no electrical charge that moves at the speed of light and interacts extremely weakly with matter in its path. In fact, neutrinos interact so weakly with objects in their path that nearly all of them fly through the entire diameter of the Earth unimpeded.
