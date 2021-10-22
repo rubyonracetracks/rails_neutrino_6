@@ -17,7 +17,6 @@ jobs:
           ruby-version: 3.0
       - name: Show Ruby version
         run: ruby -v
-      - name: Prepare database and run tests
+      - name: Create and test new app
         run: |
-          env
           bash v1.sh

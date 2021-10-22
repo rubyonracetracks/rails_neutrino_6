@@ -101,6 +101,12 @@ echo 'gem list "^bundler$"'
 gem list "^bundler$"
 echo ''
 
+if [ "$CI" = 'true' ]
+  echo '-----------------'
+  echo 'gem install rails'
+  gem install rails
+fi
+
 echo '--------'
 echo 'rails -v'
 rails -v
