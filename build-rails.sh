@@ -143,7 +143,7 @@ get_base_app_url_virtual () {
     BASE_APP_URL=`cat base_apps/v1.txt`
   elif [ "$ADD_VULNERABILITY_TESTS" = 'Y' ]
   then
-    BASE_APP_URL=`cat base_apps/v3.txt`
+    BASE_APP_URL=`cat base_apps/v2.txt`
   fi
 }
 

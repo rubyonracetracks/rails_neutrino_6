@@ -1,0 +1,1 @@
+https://github.com/rails-neutrino-6-apps/rails6v2-20211023-025610-836.git
