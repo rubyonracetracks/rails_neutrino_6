@@ -2,24 +2,24 @@
 set -e
 
 bash credentials.sh
-mkdir -p tmp
+mkdir -p variables
 
 RAILS_VERSION='6'
 MODE='v2'
-echo 'N' > tmp/host_env.txt
-echo 'N' > tmp/annotate.txt
+echo 'N' > variables/host_env.txt
+echo 'N' > variables/annotate.txt
 
 DATE=`date -u +%Y%m%d-%H%M%S-%3N`
 APP_NAME="rails$RAILS_VERSION$MODE-$DATE"
-echo "$DATE" > tmp/time_stamp.txt
-echo "$APP_NAME" > tmp/app_name.txt
+echo "$DATE" > variables/time_stamp.txt
+echo "$APP_NAME" > variables/app_name.txt
 
-echo 'N' > tmp/from_scratch.txt
-echo 'N' > tmp/dockerize.txt
-echo 'Y' > tmp/add_lint.txt
-echo 'N' > tmp/add_vulnerability_tests.txt
-echo 'N' > tmp/add_static_pages.txt
-echo 'N' > tmp/add_other.txt
+echo 'N' > variables/from_scratch.txt
+echo 'N' > variables/dockerize.txt
+echo 'Y' > variables/add_lint.txt
+echo 'N' > variables/add_vulnerability_tests.txt
+echo 'N' > variables/add_static_pages.txt
+echo 'N' > variables/add_other.txt
 
 mkdir -p log
 bash $PWD/build-rails.sh 2>&1 | tee log/$APP_NAME.txt

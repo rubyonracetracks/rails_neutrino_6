@@ -3,18 +3,18 @@ set -e
 
 # Basic parameters
 DIR_MAIN=$PWD
-APP_NAME=`cat $DIR_MAIN/tmp/app_name.txt`
+APP_NAME=`cat $DIR_MAIN/variables/app_name.txt`
 DIR_APP=$DIR_MAIN/$APP_NAME
 BASE_APP_URL='' # Will be updated later if necessary
 
-HOST_ENV=`cat tmp/host_env.txt`
-ANNOTATE=`cat tmp/annotate.txt`
-FROM_SCRATCH=`cat tmp/from_scratch.txt`
-DOCKERIZE=`cat tmp/dockerize.txt`
-ADD_LINT=`cat tmp/add_lint.txt`
-ADD_VULNERABILITY_TESTS=`cat tmp/add_vulnerability_tests.txt`
-ADD_STATIC_PAGES=`cat tmp/add_static_pages.txt`
-ADD_OTHER=`cat tmp/add_other.txt`
+HOST_ENV=`cat variables/host_env.txt`
+ANNOTATE=`cat variables/annotate.txt`
+FROM_SCRATCH=`cat variables/from_scratch.txt`
+DOCKERIZE=`cat variables/dockerize.txt`
+ADD_LINT=`cat variables/add_lint.txt`
+ADD_VULNERABILITY_TESTS=`cat variables/add_vulnerability_tests.txt`
+ADD_STATIC_PAGES=`cat variables/add_static_pages.txt`
+ADD_OTHER=`cat variables/add_other.txt`
 
 # Setting Git credentials
 if [ "$HOST_ENV" = 'Y' ]
