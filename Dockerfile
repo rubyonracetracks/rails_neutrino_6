@@ -4,7 +4,5 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 COPY ./ /home/winner/neutrino/
 
-RUN pwd && \
-    ls -l && \
-    sudo chown -R winner:winner /home/winner/neutrino && \
+RUN sudo chown -R winner:winner /home/winner/neutrino && \
     cd /home/winner/neutrino && bash build-rails.sh

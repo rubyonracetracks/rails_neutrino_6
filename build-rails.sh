@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+pwd
+ls -l
+
 # Basic parameters
 DIR_MAIN=$PWD
 APP_NAME=`cat $DIR_MAIN/variables/app_name.txt`
