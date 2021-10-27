@@ -1,35 +1,31 @@
 #!/bin/bash
 set -e
 
+DIR_MAIN=$PWD
+
 # Basic parameters
 BASE_APP_URL='' # Will be updated later if necessary
-HOST_ENV=`cat tmp/host_env.txt`
-ANNOTATE=`cat tmp/annotate.txt`
-FROM_SCRATCH=`cat tmp/from_scratch.txt`
-DOCKERIZE=`cat tmp/dockerize.txt`
-ADD_LINT=`cat tmp/add_lint.txt`
-ADD_VULNERABILITY_TESTS=`cat tmp/add_vulnerability_tests.txt`
-ADD_STATIC_PAGES=`cat tmp/add_static_pages.txt`
-ADD_OTHER=`cat tmp/add_other.txt`
+HOST_ENV=`cat $DIR_MAIN/variables/host_env.txt`
+ANNOTATE=`cat $DIR_MAIN/variables/annotate.txt`
+FROM_SCRATCH=`cat $DIR_MAIN/variables/from_scratch.txt`
+DOCKERIZE=`cat $DIR_MAIN/variables/dockerize.txt`
+ADD_LINT=`cat $DIR_MAIN/variables/add_lint.txt`
+ADD_VULNERABILITY_TESTS=`cat $DIR_MAIN/variables/add_vulnerability_tests.txt`
+ADD_STATIC_PAGES=`cat $DIR_MAIN/variables/add_static_pages.txt`
+ADD_OTHER=`cat $DIR_MAIN/variables/add_other.txt`
 
-# Preparation steps needed if this script was initiated in the host environment
+# Prepare Git credentials if not already provided
+# This is necessary if the script was initiated from the host environment.
 if [ "$HOST_ENV" = 'Y' ]
 then
-  echo 'Automatcally setting Git credentials in Docker environment'
-
-  # Git credentials
-  GIT_EMAIL=`cat tmp/git_email.txt`
-  GIT_NAME=`cat tmp/git_name.txt`
-  git config --global user.email "$GIT_EMAIL"
-  git config --global user.name "$GIT_NAME"
-else
-  # Git credentials
-  bash credentials.sh
+  git config --global user.email 'docker_user@rubyonracetracks.com'
+  git config --global user.name 'Ruby on Racetracks'
 fi
 
+bash credentials.sh
+
 # Display parameters
-DIR_MAIN=$PWD
-APP_NAME=`cat $DIR_MAIN/tmp/app_name.txt`
+APP_NAME=`cat $DIR_MAIN/variables/app_name.txt`
 DIR_APP=$DIR_MAIN/$APP_NAME
 
 echo '---------'
