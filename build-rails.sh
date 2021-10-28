@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+
+adsgasdlgjasg;
+
 # Basic parameters
 BASE_APP_URL='' # Will be updated later if necessary
 HOST_ENV=`cat tmp/host_env.txt`
