@@ -16,5 +16,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
+           which bash
            bash h1.sh
            echo "Exited with '$?'"
