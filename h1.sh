@@ -21,5 +21,6 @@ echo 'N' > tmp/add_vulnerability_tests.txt
 echo 'N' > tmp/add_static_pages.txt
 echo 'N' > tmp/add_other.txt
 
+bash nukec.sh
 mkdir -p log
-bash start-docker.sh 2>&1 | tee log/$APP_NAME.txt
+docker build . 2>&1 | tee log/$APP_NAME.txt
