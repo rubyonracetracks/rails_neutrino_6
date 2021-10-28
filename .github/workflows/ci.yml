@@ -16,5 +16,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-           set -e
+           set -o pipefail
            bash h1.sh
